@@ -17,7 +17,7 @@ SSL
 3. Generate the .csr !!!DON'T DO THIS FOR AN EXISTING INTERMEDIATE!!!
 
    ```
-   \openssl\bin\openssl req -new -key intermediate.key -out intermediate.csr -config d:/openssl/share/openssl.cnf
+   \openssl\bin\openssl req -new -key intermediate.key -out intermediate.csr -config /openssl/share/openssl.cnf
    ```
 
    Common name (eg. YOUR name) enter FQDN: `gw.companyname.com`
