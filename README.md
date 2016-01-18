@@ -20,7 +20,7 @@ SSL
    \openssl\bin\openssl req -new -key intermediate.key -out intermediate.csr -config d:/openssl/share/openssl.cnf
    ```
 
-   Common name (eg. YOUR name) enter: `gw.izimobil.si`
+   Common name (eg. YOUR name) enter FQDN: `gw.companyname.com`
 
 4. Sign the intermediate with the CA
 
