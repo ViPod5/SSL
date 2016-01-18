@@ -31,13 +31,16 @@ keyUsage = nonRepudiation, digitalSignature, keyEncipherment
 ```
 This will mark the intermediate able to act as a CA itself.
 
-1.```
+1. Go here
+```
 cd openssl\share\private
 ```
-2. Generate the new intermediate private key```
+2. Generate the new intermediate private key
+```
 ..\..\bin\openssl.exe genrsa -des3 -out private.key 2048
 ```
-3. Generate the .csr```
+3. Generate the .csr
+```
 ..\..\bin\openssl req -new -key private.key -out intermediate.csr -config ../openssl.cnf
 ```
 
