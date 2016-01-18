@@ -36,10 +36,12 @@ This will mark the intermediate able to act as a CA itself.
    cd openssl\share\private
    ```
 2. Generate the new intermediate private key
+
    ```
    ..\..\bin\openssl.exe genrsa -des3 -out private.key 2048
    ```
 3. Generate the .csr
+
    ```
    ..\..\bin\openssl req -new -key private.key -out intermediate.csr -config ../openssl.cnf
    ```
@@ -47,6 +49,7 @@ This will mark the intermediate able to act as a CA itself.
    Common name (eg. YOUR name) enter: `gw.izimobil.si`
 
 4. Sign the intermediate with the CA
+
    ```
    ..\..\bin\openssl ca -policy policy_anything -config ..\openssl.cnf -keyfile ./CA/ca.key -cert ./CA/ca.crt -infiles    intermediate.csr
    ```
