@@ -78,4 +78,5 @@ Copy it to `\openssl\share\certs\CA\certs` and rename it to `intermediate.crt`
    mkdir \openssl\share\certs\clients\new_client_name
    copy client.crt \openssl\share\certs\clients\new_client_name\
    copy client.p12 \openssl\share\certs\clients\new_client_name\
+   copy public.key \openssl\share\certs\clients\new_client_name\
    ```
