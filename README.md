@@ -1,40 +1,6 @@
 SSL
 ====================
 
-
-### The intermediate certificate
-
-1. Go here
-
-   ```
-   cd \openssl\share\private\CA\clients\intermediate
-   ```
-2. Generate the new intermediate private key. !!!DON'T DO THIS FOR AN EXISTING INTERMEDIATE!!!
-
-   ```
-   \openssl\bin\openssl.exe genrsa -des3 -out intermediate.key 2048
-   ```
-3. Generate the .csr !!!DON'T DO THIS FOR AN EXISTING INTERMEDIATE!!!
-
-   ```
-   \openssl\bin\openssl req -new -key intermediate.key -out intermediate.csr -config /openssl/share/openssl.cnf
-   ```
-
-   Common name (eg. YOUR name) enter FQDN: `gw.companyname.com`
-
-4. Sign the intermediate with the CA
-
-   ```
-   \openssl\bin\openssl ca -policy policy_anything -config d:/openssl/share/openssl.cnf -keyfile ..\..\ca.key -cert ..\..\ca.crt -infiles intermediate.csr
-   ```
-
-Openssl does not allow the same certificate to be issued twice. If you get bad txt db error you'll have to edit the `\openssl\share\certs\CA\index.txt` file and remove the existing certificate.
-
-The certificate can be found in the `\openssl\share\certs\CA\newcerts` named something like `09.pem`.
-Copy it to `\openssl\share\certs\CA\certs` and rename it to `intermediate.crt`
-
-
-
 ### Client certificates
 
 1. Go here
@@ -80,3 +46,37 @@ Copy it to `\openssl\share\certs\CA\certs` and rename it to `intermediate.crt`
    copy client.p12 \openssl\share\certs\clients\new_client_name\
    copy public.key \openssl\share\certs\clients\new_client_name\
    ```
+
+
+
+### The intermediate certificate
+
+1. Go here
+
+   ```
+   cd \openssl\share\private\CA\clients\intermediate
+   ```
+2. Generate the new intermediate private key. !!!DON'T DO THIS FOR AN EXISTING INTERMEDIATE!!!
+
+   ```
+   \openssl\bin\openssl.exe genrsa -des3 -out intermediate.key 2048
+   ```
+3. Generate the .csr !!!DON'T DO THIS FOR AN EXISTING INTERMEDIATE!!!
+
+   ```
+   \openssl\bin\openssl req -new -key intermediate.key -out intermediate.csr -config /openssl/share/openssl.cnf
+   ```
+
+   Common name (eg. YOUR name) enter FQDN: `gw.companyname.com`
+
+4. Sign the intermediate with the CA
+
+   ```
+   \openssl\bin\openssl ca -policy policy_anything -config d:/openssl/share/openssl.cnf -keyfile ..\..\ca.key -cert ..\..\ca.crt -infiles intermediate.csr
+   ```
+
+Openssl does not allow the same certificate to be issued twice. If you get bad txt db error you'll have to edit the `\openssl\share\certs\CA\index.txt` file and remove the existing certificate.
+
+The certificate can be found in the `\openssl\share\certs\CA\newcerts` named something like `09.pem`.
+Copy it to `\openssl\share\certs\CA\certs` and rename it to `intermediate.crt`
+
