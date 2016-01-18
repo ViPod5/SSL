@@ -35,15 +35,15 @@ This will mark the intermediate able to act as a CA itself.
    ```
    cd openssl\share\private
    ```
-2. Generate the new intermediate private key
+2. Generate the new intermediate private key. !!!DON'T DO THIS FOR AN EXISTING INTERMEDIATE!!!
 
    ```
-   ..\..\bin\openssl.exe genrsa -des3 -out private.key 2048
+   ..\..\bin\openssl.exe genrsa -des3 -out intermediate.key 2048
    ```
-3. Generate the .csr
+3. Generate the .csr !!!DON'T DO THIS FOR AN EXISTING INTERMEDIATE!!!
 
    ```
-   ..\..\bin\openssl req -new -key private.key -out intermediate.csr -config ../openssl.cnf
+   ..\..\bin\openssl req -new -key intermediate.key -out intermediate.csr -config ../openssl.cnf
    ```
 
    Common name (eg. YOUR name) enter: `gw.izimobil.si`
@@ -54,6 +54,6 @@ This will mark the intermediate able to act as a CA itself.
    ..\..\bin\openssl ca -policy policy_anything -config ..\openssl.cnf -keyfile ./CA/ca.key -cert ./CA/ca.crt -infiles    intermediate.csr
    ```
 
-The certificate can be foind in the `\openssl\share\certs\CA\newcerts` named something like `09.pem`.
+The certificate can be found in the `\openssl\share\certs\CA\newcerts` named something like `09.pem`.
 Copy it to `\openssl\share\certs\CA\certs` and rename it to `intermediate.crt`
 
