@@ -21,7 +21,7 @@ SSL
 
 4. Generate new certificate signing request
    ```
-   \openssl\bin\openssl req -new -key client.key -out client.csr -config d:/openssl/share/intermediate.cnf
+   \openssl\bin\openssl req -new -key client.key -out client.csr -config /openssl/share/intermediate.cnf
    ```
 
 5. Sign the request using intermediate key and certificate
